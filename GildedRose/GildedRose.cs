@@ -33,11 +33,19 @@ namespace GildedRose
                         
                         break;
                     
-                    // case "Backstage passes to a TAFKAL80ETC concert" :
-                    //
-                    //     
-                    //     
-                    //     break;
+                    case "Backstage passes to a TAFKAL80ETC concert" :
+
+                        if (item.SellIn > 10)
+                            item.Quality++;
+                        else if (item.SellIn > 5)
+                            item.Quality += 2;
+                        else if (item.SellIn > -1)
+                            item.Quality += 3;
+                        else if (item.SellIn < 0)
+                            item.Quality = 0;
+                        
+                        item.SellIn--;
+                        break;
 
                     default:
 

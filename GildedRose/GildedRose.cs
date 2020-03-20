@@ -22,18 +22,18 @@ namespace GildedRose
                         break;
 
                     case "Aged Brie":
-                        
+
                         item.SellIn--;
-                        
+
                         if (item.Quality < 50)
                             item.Quality++;
-                        
+
                         if (item.SellIn < 0)
                             item.Quality++;
-                        
+
                         break;
-                    
-                    case "Backstage passes to a TAFKAL80ETC concert" :
+
+                    case "Backstage passes to a TAFKAL80ETC concert":
 
                         if (item.SellIn > 10)
                             item.Quality++;
@@ -43,43 +43,22 @@ namespace GildedRose
                             item.Quality += 3;
                         else if (item.SellIn < 0)
                             item.Quality = 0;
-                        
+
                         item.SellIn--;
                         break;
 
                     default:
 
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+
+                        if (item.Quality > 0)
                         {
-                            if (item.Quality > 0)
-                            {
-                                item.Quality--;
-                            }
+                            item.Quality--;
                         }
                         else
                         {
                             if (item.Quality < 50)
                             {
                                 item.Quality++;
-
-                                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                                {
-                                    if (item.SellIn < 11)
-                                    {
-                                        if (item.Quality < 50)
-                                        {
-                                            item.Quality++;
-                                        }
-                                    }
-
-                                    if (item.SellIn < 6)
-                                    {
-                                        if (item.Quality < 50)
-                                        {
-                                            item.Quality++;
-                                        }
-                                    }
-                                }
                             }
                         }
 
@@ -88,16 +67,9 @@ namespace GildedRose
 
                         if (item.SellIn < 0)
                         {
-                            if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                            if (item.Quality > 0)
                             {
-                                if (item.Quality > 0)
-                                {
-                                    item.Quality--;
-                                }
-                            }
-                            else
-                            {
-                                item.Quality = 0;
+                                item.Quality--;
                             }
                         }
 

@@ -21,6 +21,22 @@ namespace GildedRose
 
                         break;
 
+                    case "Aged Brie":
+                        
+                        item.SellIn--;
+                        
+                        if (item.Quality < 50)
+                            item.Quality++;
+                        
+                        if (item.SellIn < 0)
+                            item.Quality++;
+                        
+                        break;
+                    
+                    case "Backstage passes to a TAFKAL80ETC concert" :
+
+                        break;
+
                     default:
 
                         if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
@@ -56,34 +72,23 @@ namespace GildedRose
                                 }
                             }
                         }
-                        
+
                         item.SellIn--;
-                        
+
 
                         if (item.SellIn < 0)
                         {
-                            if (item.Name != "Aged Brie")
+                            if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                             {
-                                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                                if (item.Quality > 0)
                                 {
-                                    if (item.Quality > 0)
-                                    {
-                                        item.Quality--;
-                                    }
-                                }
-                                else
-                                {
-                                    item.Quality = 0;
+                                    item.Quality--;
                                 }
                             }
                             else
                             {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality++;
-                                }
+                                item.Quality = 0;
                             }
-                            
                         }
 
                         break;

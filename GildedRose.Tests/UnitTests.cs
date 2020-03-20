@@ -22,5 +22,22 @@ namespace GildedRose.Tests
             gildedRose.Items[1].Quality.Should().Be(80);
             gildedRose.Items[1].SellIn.Should().Be(-1);
         }
+
+        [Test]
+        public void AgedBrieShouldIncreaseInQualityUntil50()
+        {
+            IList<Item> Items = new List<Item>{
+                new Item {Name = "Aged Brie", SellIn = 10, Quality = 50},
+                new Item {Name = "Aged Brie", SellIn = 10, Quality = 38},
+                new Item {Name = "Aged Brie", SellIn = -3, Quality = 10}
+            };
+            var gildedRose = new GildedRose(Items);
+            
+            gildedRose.UpdateQuality();
+            
+            gildedRose.Items[0].Quality.Should().Be(50);
+            gildedRose.Items[1].Quality.Should().Be(39);
+            gildedRose.Items[2].Quality.Should().Be(12);
+        }
     }
 }

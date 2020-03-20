@@ -33,9 +33,11 @@ namespace GildedRose
                         
                         break;
                     
-                    case "Backstage passes to a TAFKAL80ETC concert" :
-
-                        break;
+                    // case "Backstage passes to a TAFKAL80ETC concert" :
+                    //
+                    //     
+                    //     
+                    //     break;
 
                     default:
 

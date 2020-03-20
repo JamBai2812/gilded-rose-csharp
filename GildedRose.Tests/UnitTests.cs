@@ -39,5 +39,25 @@ namespace GildedRose.Tests
             gildedRose.Items[1].Quality.Should().Be(39);
             gildedRose.Items[2].Quality.Should().Be(12);
         }
+        
+        [Test]
+        public void BackstagePassesShouldIncreaseByOneWhenSellInIsOverTen()
+        {
+            IList<Item> Items = new List<Item>{
+                new Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 11, Quality = 10},
+                new Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 10},
+                new Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 10},
+                new Item {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = -1, Quality = 10},
+                
+            };
+            var gildedRose = new GildedRose(Items);
+            
+            gildedRose.UpdateQuality();
+            
+            gildedRose.Items[0].Quality.Should().Be(11);
+            gildedRose.Items[1].Quality.Should().Be(12);
+            gildedRose.Items[2].Quality.Should().Be(13);
+            gildedRose.Items[3].Quality.Should().Be(0);
+        }
     }
 }

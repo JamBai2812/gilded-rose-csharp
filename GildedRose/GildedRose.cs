@@ -49,29 +49,20 @@ namespace GildedRose
 
                     default:
 
-
-                        if (item.Quality > 0)
+                        if (item.SellIn >= 0 && item.Quality > 0)
                         {
                             item.Quality--;
                         }
+                        else if (item.SellIn < 0 && item.Quality > 1)
+                        {
+                            item.Quality -= 2;
+                        }
                         else
                         {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality++;
-                            }
+                            item.Quality = 0;
                         }
 
                         item.SellIn--;
-
-
-                        if (item.SellIn < 0)
-                        {
-                            if (item.Quality > 0)
-                            {
-                                item.Quality--;
-                            }
-                        }
 
                         break;
                 }

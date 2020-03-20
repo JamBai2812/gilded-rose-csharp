@@ -4,7 +4,7 @@ namespace GildedRose
 {
     public class GildedRose
     {
-        IList<Item> Items;
+        public IList<Item> Items;
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
@@ -14,6 +14,16 @@ namespace GildedRose
         {
             foreach (var item in Items)
             {
+                
+                // Eventually would like a switch statement for special cases and default for everything else
+                // switch (item.Name)
+                // {
+                //     case "Aged Brie":
+                //         
+                //         break;
+                // }
+                
+                
                 if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality > 0)
